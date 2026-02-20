@@ -1,0 +1,33 @@
+#include <iostream>  // Permite usar entrada y salida estándar
+using namespace std; // Evita escribir std::
+
+int main() {         // Función principal
+
+    int a, b;  // Variables que almacenarán los dos números
+
+    cout << "Ingrese el primer numero: ";
+    cin >> a;  // Lee el primer número
+
+    cout << "Ingrese el segundo numero: ";
+    cin >> b;  // Lee el segundo número
+
+    // Verifica que ambos números sean positivos
+    if (a <= 0 || b <= 0) {
+        cout << "Ambos numeros deben ser positivos." << endl;
+        return 0;  // Termina el programa
+    }
+
+    int residuo;  // Variable que almacenará el resto de la división
+
+    // Aplica el algoritmo de Euclides
+    while (b != 0) {          // Mientras el segundo número no sea 0
+        residuo = a % b;      // Calcula el resto de dividir a entre b
+        a = b;                // El valor de b pasa a ser el nuevo a
+        b = residuo;          // El residuo pasa a ser el nuevo b
+    }
+
+    // Cuando b es 0, a contiene el MCD
+    cout << "El Maximo Comun Divisor es: " << a << endl;
+
+    return 0;  // Finaliza el programa
+}
