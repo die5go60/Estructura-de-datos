@@ -1,0 +1,35 @@
+#include <iostream>   // Permite usar entrada y salida estándar (cin y cout)
+using namespace std;  // Evita escribir std:: antes de cada instrucción
+
+int main() {          // Función principal del programa
+
+    int n;  // Variable que almacenará el número ingresado por el usuario
+    
+    cout << "Ingrese un numero entero positivo: ";  // Mensaje al usuario
+    cin >> n;  // Se lee el número ingresado
+
+    if (n <= 0) {  // Verifica que el número sea positivo
+        cout << "El numero debe ser positivo." << endl;  // Mensaje de error
+        return 0;  // Termina el programa
+    }
+
+    int sumaDivisores = 0;  // Variable acumuladora para sumar divisores propios
+
+    // Recorre desde 1 hasta n/2 (ningún divisor propio puede ser mayor que n/2)
+    for (int i = 1; i <= n / 2; i++) {
+        
+        // Verifica si i divide exactamente a n
+        if (n % i == 0) {
+            sumaDivisores += i;  // Si es divisor, lo suma al acumulador
+        }
+    }
+
+    // Compara la suma de divisores con el número original
+    if (sumaDivisores == n) {
+        cout << "El numero " << n << " es perfecto." << endl;  // Caso verdadero
+    } else {
+        cout << "El numero " << n << " no es perfecto." << endl;  // Caso falso
+    }
+
+    return 0;  // Finaliza el programa correctamente
+}
