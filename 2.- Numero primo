@@ -1,0 +1,38 @@
+#include <iostream>  // Permite usar cin y cout
+#include <cmath>     // Permite usar la función sqrt()
+using namespace std; // Evita escribir std:: 
+
+int main() {         // Función principal
+
+    int n;  // Variable que almacenará el número
+    
+    cout << "Ingrese un numero entero: ";  // Solicita el número
+    cin >> n;  // Lee el número ingresado
+
+    // Los números menores o iguales a 1 no son primos
+    if (n <= 1) {
+        cout << "El numero " << n << " no es primo." << endl;
+        return 0;  // Termina el programa
+    }
+
+    bool esPrimo = true;  // Se asume inicialmente que el número es primo
+
+    // Recorre desde 2 hasta la raíz cuadrada de n
+    for (int i = 2; i <= sqrt(n); i++) {
+        
+        // Verifica si i divide exactamente a n
+        if (n % i == 0) {
+            esPrimo = false;  // Si encuentra divisor, deja de ser primo
+            break;  // Sale del ciclo inmediatamente
+        }
+    }
+
+    // Muestra el resultado final
+    if (esPrimo) {
+        cout << "El numero " << n << " es primo." << endl;
+    } else {
+        cout << "El numero " << n << " no es primo." << endl;
+    }
+
+    return 0;  // Finaliza el programa
+}
